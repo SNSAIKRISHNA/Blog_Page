@@ -1,11 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const  path = require('path');
 const app = express();
 const userRoutes = require('./routers/userRoutes');
 const blogRoutes = require('./routers/blogRoutes');
 const staticRouter = require('./routers/staticRouter');
 
+app.set('view engine', 'ejs');
+app.set('views', path.resolve('./views'));
+
+app.use(express.static(path.resolve('./public')));
 app.use(bodyParser.json());
 
 app.use('/', staticRouter);
