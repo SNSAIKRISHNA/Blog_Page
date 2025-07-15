@@ -1,9 +1,16 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
+const userRoutes = require('./routers/userRoutes');
+const blogRoutes = require('./routers/blogRoutes');
+const staticRouter = require('./routers/staticRouter');
 
+app.use(bodyParser.json());
 
-
+app.use('/', staticRouter);
+app.use('/users', userRoutes);
+app.use('/blogs', blogRoutes);
 
 
 
