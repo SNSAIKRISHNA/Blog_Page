@@ -1,0 +1,15 @@
+{
+  "name": "blog-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "Start": "nodemon index.js"
+  },
+  "author": "Saikrishan",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
