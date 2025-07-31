@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const{ renderHomePage, renderLoginPage} =  require("../controllers/staticController");
 
-router.get("/", (req, res) => {
-    res.render("home")
-})
+router.get("/", renderHomePage);
+
+router.get("/login", renderLoginPage);
 
 module.exports = router;

@@ -13,7 +13,7 @@ app.use(express.static(path.resolve('./public')));
 app.use(bodyParser.json());
 
 app.use('/', staticRouter);
-app.use('/users', userRoutes);
+app.use('/user', userRoutes);
 app.use('/blogs', blogRoutes);
 
 
