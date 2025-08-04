@@ -1,6 +1,10 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const{ renderHomePage, renderLoginPage , renderSignupPage} =  require("../controllers/staticController");
+const {
+  renderHomePage,
+  renderLoginPage,
+  renderSignupPage,
+} = require("../controllers/staticController");
 
 router.get("/", renderHomePage);
 
