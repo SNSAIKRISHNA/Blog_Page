@@ -4,3 +4,6 @@ exports.renderHomePage = (req, res) => {
 exports.renderLoginPage = (req, res) => {
     return res.render("login");
 };
+exports.renderSignupPage = (req, res) => {
+    return res.render("signup");
+};
