@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const  path = require('path');
 const  mongoose = require('mongoose');
-
+const cookieParser = require('cookie-parser')
 const app = express();
 mongoose.connect('mongodb://localhost:27017/wifiBlog')
   .then(() => console.log('Mongodb connected'))
@@ -18,6 +18,8 @@ app.set('views', path.resolve('./views'));
 app.use(express.static(path.resolve('./public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
+app.use (cookieParser())
+
 
 app.use('/', staticRouter);
 app.use('/user', userRoutes);
