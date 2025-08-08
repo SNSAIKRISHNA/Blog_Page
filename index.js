@@ -30,7 +30,7 @@ app.use(checkForToken);
 
 app.use("/", staticRouter);
 app.use("/user", userRoutes);
-app.use("/blogs", blogRoutes);
+app.use("/blog", blogRoutes);
 
 app.listen(3000, () => {
   console.log("Server is running  on port 3000");
