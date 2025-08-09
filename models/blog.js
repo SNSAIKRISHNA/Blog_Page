@@ -1,4 +1,4 @@
-const mongooose = require('mongoose');
+const mongoose = require('mongoose');
 
 const blogSechema = new mongoose.Schema({
     title:{
@@ -18,7 +18,7 @@ const blogSechema = new mongoose.Schema({
         required: false
     }
    
-})
+},{timestamps: true});
 const Blog = mongoose.model('Blog', blogSechema);
 
 module.exports = Blog;
