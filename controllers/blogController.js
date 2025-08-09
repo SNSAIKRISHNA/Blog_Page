@@ -1,10 +1,11 @@
+const Blog = require('../models/blog')
 exports.renderCreateBlogPage = function (req, res) {
      res.render("createBlog",{
         user: req.user,
     });
 }
 
-exports.createNewBlogPage = async function(){
+exports.createNewBlogPage = async function(req, res){
       const {title,content} = req.body 
 
  try {

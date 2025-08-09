@@ -5,7 +5,7 @@ const multer = require('multer');
 
 
 const {createNewBlogPage, renderCreateBlogPage } = require('../controllers/blogController')
-const Blog = require('../models/blog')
+
 
  const storage = multer.diskStorage({
     destination: (req, file, cb) => {
