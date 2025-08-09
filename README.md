@@ -39,8 +39,17 @@ Rich text editor for blog content
 
 Pagination & search functionality
 
+<img width="1880" height="860" alt="Screenshot (78)" src="https://github.com/user-attachments/assets/5fa239a4-f4d7-4217-a88a-c4aa9e6f558d" />
 
 ---
+📫 Contact
+
+For inquiries or collaboration opportunities, feel free to reach out:
+
+Email: saikrishnasnoff@gmail.com
+
+LinkedIn: https://www.linkedin.com/in/saikrishnasn2211/
+
 
 If you want, I can also **add code snippets showing your blog creation API and Multer config** inside the README so that it looks like a real open-source backend project.  
 That will make it **stand out to recruiters** even more.
