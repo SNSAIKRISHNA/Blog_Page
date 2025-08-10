@@ -4,7 +4,7 @@ const multer = require('multer');
 
 
 
-const {createNewBlogPage, renderCreateBlogPage } = require('../controllers/blogController')
+const {createNewBlogPage, renderCreateBlogPage, renderBlogPost } = require('../controllers/blogController')
 
 
  const storage = multer.diskStorage({
@@ -19,7 +19,7 @@ const {createNewBlogPage, renderCreateBlogPage } = require('../controllers/blogC
 const upload = multer({ storage });
 
 router.get("/create", renderCreateBlogPage);
-
+router.get("/view/:id", renderBlogPost)
 router.post("/create", upload.single("coverImage"), createNewBlogPage);
 
 module.exports = router;

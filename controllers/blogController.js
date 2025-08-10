@@ -23,3 +23,17 @@ exports.createNewBlogPage = async function(req, res){
     })
  }
 };
+
+exports.renderBlogPost = async function(req,res){
+    try {
+        const id =  req.params.id;
+        const blog = await Blog.findById(id).populate('createdBy');
+        return res.render('blog', {
+            user: req.user,
+            blog,
+        })
+    } catch (error) {
+        res.render("home");
+        
+    }
+}
