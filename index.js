@@ -9,6 +9,9 @@ const cookieParser = require("cookie-parser");
 const userRoutes = require("./routers/userRoutes");
 const blogRoutes = require("./routers/blogRoutes");
 const staticRouter = require("./routers/staticRouter");
+const commentRoutes =require("./routers/commentRoutes");
+
+
 const { checkForToken } = require("./middlewares/auth");
 
 const app = express();
@@ -31,6 +34,7 @@ app.use(checkForToken);
 app.use("/", staticRouter);
 app.use("/user", userRoutes);
 app.use("/blog", blogRoutes);
+app.use("/comment", commentRoutes);
 
 app.listen(3000, () => {
   console.log("Server is running  on port 3000");

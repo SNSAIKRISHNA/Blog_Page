@@ -15,6 +15,35 @@
             <p><%= blog.content%></p>
              <p>Posted By: <%= blog.createdBy.fullName%></p>
         </div>
+        <% if(locals.user) { %>
+          <div class="container my-5">
+            <input id="comment-input" class="form-control" type="text" placeholder="Enter Your Comments"/>
+            <button id="submitBtn" class="btn btn-success my-2">Post</button>
+          </div>
+        <% } %>
     <%- include('./partials/js/bootstrap') %>
+
+   <script>
+  const blogId = '<%= blog._id %>';
+  const input = document.getElementById('comment-input');
+  const btn = document.getElementById('submitBtn');
+
+  btn.addEventListener('click', createComment);
+
+  function createComment() {
+    fetch('/comment/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        blogId: blogId,
+        content: input.value
+      })
+    })
+    .then(() => window.location.reload());
+  }
+</script>
+
   </body>
 </html>
