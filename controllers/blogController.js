@@ -1,4 +1,5 @@
 const Blog = require('../models/blog')
+const Comment = require('../models/comments')
 exports.renderCreateBlogPage = function (req, res) {
      res.render("createBlog",{
         user: req.user,
@@ -28,9 +29,12 @@ exports.renderBlogPost = async function(req,res){
     try {
         const id =  req.params.id;
         const blog = await Blog.findById(id).populate('createdBy');
+        const comments = await Comment.find({blogId: blog._id
+        })
         return res.render('blog', {
             user: req.user,
             blog,
+            comments
         })
     } catch (error) {
         res.render("home");

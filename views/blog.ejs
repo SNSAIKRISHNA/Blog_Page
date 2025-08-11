@@ -21,6 +21,13 @@
             <button id="submitBtn" class="btn btn-success my-2">Post</button>
           </div>
         <% } %>
+      
+     <div class="container"> 
+      <% comments.forEach(comment => { %>
+        <li>  <%= comment.content %> </li>
+      <%}) %>
+     </div>
+
     <%- include('./partials/js/bootstrap') %>
 
    <script>
