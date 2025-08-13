@@ -9,6 +9,7 @@ async function genrateTokenForUser(id) {
     _id: user._id,
     email: user.email,
     fullName: user.fullName,
+    role: user.role
   };
   const token = jwt.sign(payload,JWT_SECRET);
   return token;

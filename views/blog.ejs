@@ -23,8 +23,12 @@
         <% } %>
       
      <div class="container"> 
+      <h1>Comments(<%= comments.length %>)</h1>
       <% comments.forEach(comment => { %>
-        <li>  <%= comment.content %> </li>
+       <div>
+
+         <span class="text-bold"><%= comment.content %></span>
+       </div>
       <%}) %>
      </div>
 

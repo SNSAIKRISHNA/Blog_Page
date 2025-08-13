@@ -19,7 +19,7 @@ const {createNewBlogPage, renderCreateBlogPage, renderBlogPost } = require('../c
 const upload = multer({ storage });
 
 router.get("/create", renderCreateBlogPage);
-router.get("/view/:id", renderBlogPost)
+router.get("/view/:id", renderBlogPost);
 router.post("/create", upload.single("coverImage"), createNewBlogPage);
 
 module.exports = router;

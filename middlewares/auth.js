@@ -15,3 +15,5 @@ exports.checkForToken = function (req, res, next) {
         return next(); 
     }
 };
+ 
+exports.only

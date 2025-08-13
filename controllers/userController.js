@@ -1,5 +1,7 @@
 const { genrateTokenForUser } = require("../utils/auth");
 const User = require("../models/user");
+const Blog = require('../models/blog');
+
 exports.handleUserLogin = async function (req, res) {
   const { email, password } = req.body;
   try {
@@ -35,3 +37,14 @@ exports.handleUserSignUp = async function (req, res) {
     });
   }
 };
+
+exports.renderUserBlog =  async(req,res) => {
+  if(!req.user) return res.redirect('/login')
+  const blogs = await Blog.find({createdBy: req.user._id})
+ return res.render('userBlogs',{
+   user: req.user,
+   blogs,
+   
+ })
+   
+}
