@@ -1,12 +1,15 @@
 const Blog = require('../models/blog')
 const Comment = require('../models/comments')
+
+
 exports.renderCreateBlogPage = function (req, res) {
      res.render("createBlog",{
         user: req.user,
     });
-}
+};
 
 exports.createNewBlogPage = async function(req, res){
+
       const {title,content} = req.body 
 
  try {
@@ -28,6 +31,7 @@ exports.createNewBlogPage = async function(req, res){
 exports.renderBlogPost = async function(req,res){
     try {
         const id =  req.params.id;
+        await Blog.findByIdAndUpdate (id ,{$inc: {views: 1 }})
         const blog = await Blog.findById(id).populate('createdBy');
         const comments = await Comment.find({blogId: blog._id
         })
@@ -40,4 +44,11 @@ exports.renderBlogPost = async function(req,res){
         res.render("home");
         
     }
-}
+};
+
+exports.handleDeleteBlog = async function (req,res){
+    
+   
+    await Blog.deleteOne({_id: req.params.id})
+    return res.redirect("/");
+};

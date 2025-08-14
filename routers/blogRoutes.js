@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
+const Blog = require('../models/blog');
 
 
-
-const {createNewBlogPage, renderCreateBlogPage, renderBlogPost } = require('../controllers/blogController')
-
+const {createNewBlogPage, renderCreateBlogPage, renderBlogPost,handleDeleteBlog} = require('../controllers/blogController')
+const {onlyGrantAccessTo,ensureAuthicated} = require('../middlewares/auth')
 
  const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -18,8 +18,11 @@ const {createNewBlogPage, renderCreateBlogPage, renderBlogPost } = require('../c
 
 const upload = multer({ storage });
 
-router.get("/create", renderCreateBlogPage);
+router.get("/create", ensureAuthicated, renderCreateBlogPage);
 router.get("/view/:id", renderBlogPost);
-router.post("/create", upload.single("coverImage"), createNewBlogPage);
+router.get('/delete/:id',onlyGrantAccessTo('Admin'), handleDeleteBlog);
+
+
+router.post("/create", ensureAuthicated,upload.single("coverImage"), createNewBlogPage);
 
 module.exports = router;

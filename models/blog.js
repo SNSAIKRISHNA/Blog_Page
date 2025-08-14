@@ -16,6 +16,11 @@ const blogSechema = new mongoose.Schema({
     coverImage:{
         type: String,
         required: false
+    },
+    views: {
+        type: Number,
+        default: 0 ,
+        
     }
    
 },{timestamps: true});
